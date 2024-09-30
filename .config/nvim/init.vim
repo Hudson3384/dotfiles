@@ -1,8 +1,10 @@
+syntax on
+set background=dark
+set termguicolors
 set nocompatible
-syntax enable
 set encoding=UTF-8
 set colorcolumn=80
-set updatetime=500
+set updatetime=100
 set relativenumber
 set viminfo='1000
 set tabstop=2
@@ -23,12 +25,13 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'		" NERD Tree
 Plug 'ryanoasis/vim-devicons'
+Plug 'safv12/andromeda.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin' 	" show git status in Nerd tree
 Plug 'itchyny/lightline.vim'		" UI
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-
 " Code {{{
+Plug 'iamcco/diagnostic-languageserver', { 'do': 'yarn install' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/html5.vim'
@@ -75,6 +78,8 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
+" highlight
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "tabs & navigation  
 map <leader>t gt<cr>
@@ -100,3 +105,4 @@ map <leader>r <C-w>w
 "  autocmd FileType typescript,json,.tsx silent! setl formatexpr=CocAction('formatSelected')
 "  autocmd User CocJumpPlaceholder silent! call CocActionAsync('showSignatureHelp')
 "augroup end
+

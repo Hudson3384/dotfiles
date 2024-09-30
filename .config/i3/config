@@ -31,20 +31,22 @@ exec --no-startup-id dex --autostart --environment i3
 #set $i3lockwall i3lock -i /home/hudson/.config/i3/config/wallpaper.png -c 000000
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+exec --no-startup-id $mclip daemon
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+bindsym $mod+space exec dunstctl close
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # Aumentar brilho
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && echo xbacklight > /home/user_name/.config/brightness && $refresh_i3status
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 5 && echo xbacklight > /home/user_name/.config/brightness && $refresh_i3status
 # Diminuir brilho
-bindsym XF86MonBrighnessDown exec xbacklight -dec 5 && echo xbacklight > /home/user_name/.config/brightness && $refresh_i3status
+#bindsym XF86MonBrighnessDown exec xbacklight -dec 5 && echo xbacklight > /home/user_name/.config/brightness && $refresh_i3status
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -54,7 +56,7 @@ tiling_drag modifier titlebar
 
 # Screenshots
 
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym Print exec --no-startup-id flameshot gui "/home/$USER/Pictures/$(date)"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
@@ -122,7 +124,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -201,6 +203,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Setup mclip
+set $mclip /home/hudson/apps/rofi-clipboard-manager/mclip.py
+bindsym $mod+Shift+v exec rofi -fullscreen -padding 200 -opacity 80 -modi "clipboard:$mclip menu" -show clipboard && $mclip paste
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -208,3 +214,4 @@ bar {
         status_command i3status
         separator_symbol "|"
 }
+

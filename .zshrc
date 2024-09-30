@@ -16,16 +16,20 @@ set -o vi
 bindkey -v
 
 HISTFILE=~/.zsh_history
-HISTSIZE=99999999
-SAVEHIST=99999999
+HISTSIZE=99999999999
+HISTFILESIZE=99999999999
+SAVEHIST=99999999999
+export HISTTIMEFORMAT="[%F %T] "
 setopt appendhistory
-
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPS
 
 plugins=(
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
 
+#alias php='docker-compose exec app php'
 alias vim="nvim"
 alias zshconfig="vim ~/.zshrc"
 alias i3config="vim ~/.config/i3/config"
@@ -35,6 +39,7 @@ alias scrot='scrot ~/screenshots/%Y-%m-%d-%T.png'
 alias maclanche='ssh maclanche'
 alias mobile="cd ~/workspace/repos/app-mobile"
 alias web="cd ~/workspace/repos/app-web"
+alias core="cd ~/workspace/repos/app-core"
 alias ponto="~/.ponto.sh"
 alias cerberus="~/.screenlayout/cerberus.sh" 
 # git log with graph alias
@@ -50,7 +55,11 @@ export CARGO_HOME=~/.cargo/bin:~/.cargo/bin/bin
 export COMPOSER_BIN=~/.config/composer/vendor/bin
 export YARN_BIN=~/.yarn/bin
 export FLUTTER_BIN=/opt/flutter/bin
-export PATH=$NODEJS_HOME:$HOME_BIN:$RUBY_HOME:$CARGO_HOME:$COMPOSER_BIN:$YARN_BIN:$FLUTTER_BIN:$PATH
+export EXERCISM=/home/hudson/bin
+export SONAR_SCANNER_HOME=/opt/sonar-scanner/bin
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$NODEJS_HOME:$HOME_BIN:$RUBY_HOME:$CARGO_HOME:$COMPOSER_BIN:$YARN_BIN:$FLUTTER_BIN:$SONAR_SCANNER_HOME:$PATH
+PATH=$PATH:$ANDROID_HOME/tools/bin/:$ANDROID_HOME/platform-tools/:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator:${SONAR_SCANNER_HOME}/:${EXERCISM}
 
 # how to know what keys is each, use: infocmp -L -1
 # how to know what commands are available, use: zle -al
@@ -89,8 +98,19 @@ source  ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-ANDROID_HOME=/opt/android-sdk
-PATH=$PATH:$ANDROID_HOME/tools/bin/:$ANDROID_HOME/platform-tools/:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/emulator
+#
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias repos=/home/hudson/workspace/repos
+alias datetimepicker=/home/hudson/workspace/repos/datetimepicker
+alias socketproxy=/home/hudson/workspace/repos/socketproxy
+alias app-core=/home/hudson/workspace/repos/app-core
+alias new-mobile=/home/hudson/workspace/repos/new-mobile
+alias nwapmob=/home/hudson/workspace/repos/nwapmob
+alias OpenDataCrenter=/home/hudson/workspace/repos/OpenDataCrenter
+alias site=/home/hudson/workspace/repos/site
+alias app-web-prod=/home/hudson/workspace/repos/app-web-prod
+alias react-md-editor=/home/hudson/workspace/repos/react-md-editor
+alias frontsocketproxy=/home/hudson/workspace/repos/frontsocketproxy
+alias app-mobile=/home/hudson/workspace/repos/app-mobile
+alias k8s-objects=/home/hudson/workspace/repos/k8s-objects

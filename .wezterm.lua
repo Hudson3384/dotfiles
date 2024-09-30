@@ -1,6 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
-local dimmer = { brightness = 0.2 }
+local dimmer = { brightness = 0.4 }
 -- This table will hold the configuration.
 local config = {}
 
@@ -14,7 +14,7 @@ end
 
 -- For example, changing the color scheme:
 config.enable_tab_bar = true
-config.color_scheme = 'Thayer Bright (Gogh)'
+config.color_scheme = 'Dracula'
 config.default_prog = { '/bin/zsh', '-l' }
 config.enable_tab_bar = false
 config.background = {
