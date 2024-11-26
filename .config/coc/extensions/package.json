@@ -15,11 +15,12 @@
     "coc-tailwindcss": ">=0.7.0",
     "coc-phpls": ">=2.2.4",
     "@yaegassy/coc-laravel": ">=0.7.18",
-    "coc-markdown-preview-enhanced": ">=0.5.3",
+    "coc-markdown-preview-enhanced": ">=0.5.5",
     "coc-webview": ">=0.12.0",
     "coc-kotlin": ">=0.1.0",
     "coc-java": ">=1.15.2",
-    "coc-highlight": ">=2.0.4"
+    "coc-highlight": ">=2.0.4",
+    "coc-diagnostic": ">=0.24.1"
   },
   "lastUpdate": 1727724127723
 }
