@@ -21,6 +21,30 @@
 !.config/coc/extensions/package.json
 
 !.config/nvim
+!.config/nvim/init.lua
+!.config/nvim/lazy-lock.json
+
+!.config/nvim/lua
+
+!.config/nvim/lua/theprimeagen
+!.config/nvim/lua/theprimeagen/init.lua
+!.config/nvim/lua/theprimeagen/lazy_init.lua
+!.config/nvim/lua/theprimeagen/remap.lua
+!.config/nvim/lua/theprimeagen/set.lua
+!.config/nvim/lua/theprimeagen/lazy
+!.config/nvim/lua/theprimeagen/lazy/cloak.lua
+!.config/nvim/lua/theprimeagen/lazy/init.lua
+!.config/nvim/lua/theprimeagen/lazy/snippets.lua
+!.config/nvim/lua/theprimeagen/lazy/trouble.lua
+!.config/nvim/lua/theprimeagen/lazy/colors.lua
+!.config/nvim/lua/theprimeagen/lazy/local.lua
+!.config/nvim/lua/theprimeagen/lazy/telescope.lua
+!.config/nvim/lua/theprimeagen/lazy/undotree.lua
+!.config/nvim/lua/theprimeagen/lazy/fugitive.lua
+!.config/nvim/lua/theprimeagen/lazy/lsp.lua
+!.config/nvim/lua/theprimeagen/lazy/treesitter.lua
+
+
 !.config/nvim/coc-settings.json
 !.config/nvim/init.vim
 
