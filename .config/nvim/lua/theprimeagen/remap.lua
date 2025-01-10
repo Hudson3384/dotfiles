@@ -12,8 +12,12 @@ vim.keymap.set('n', '<leader>w', function()
   pcall(vim.lsp.buf.format, { async = false })
   vim.cmd('w') -- Save the file if formatting was successful
 end, { noremap = true, silent = true, desc = 'Format and save file' })
-
+-- Blame
+vim.keymap.set({ 'n', 'v' }, '<leader>ba', ':Gitsigns blame<CR>', { noremap = true, silent = true, desc = 'Blame file' })
+vim.keymap.set('n', '<leader>bl', ':Gitsigns blame_line <CR>', { noremap = true, silent = true, desc = 'Blame line' })
+---
 -- Tab navigation and management
+vim.keymap.set('n', '<leader>n', ':tabnew<CR>', { noremap = true, silent = true, desc = 'New tab' })
 vim.keymap.set('n', '<leader>t', 'gt', { noremap = true, silent = true, desc = 'Go to next tab' })
 vim.keymap.set('n', '<leader>n', ':tabnew<CR>', { noremap = true, silent = true, desc = 'New tab' })
 vim.keymap.set('n', '<leader>m', ':tabmove', { noremap = true, desc = 'Move tab' })
